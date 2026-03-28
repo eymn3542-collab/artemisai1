@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-[#050505] text-zinc-100 antialiased selection:bg-emerald-500/30;
+  }
+
+  .markdown-body {
+    @apply leading-relaxed text-sm;
+  }
+  .markdown-body p {
+    @apply mb-4 last:mb-0;
+  }
+  .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+    @apply font-bold mt-6 mb-4 text-white;
+  }
+  .markdown-body h1 { @apply text-2xl; }
+  .markdown-body h2 { @apply text-xl; }
+  .markdown-body h3 { @apply text-lg; }
+  .markdown-body ul, .markdown-body ol {
+    @apply mb-4 ml-6 list-outside;
+  }
+  .markdown-body ul { @apply list-disc; }
+  .markdown-body ol { @apply list-decimal; }
+  .markdown-body li { @apply mb-1; }
+  .markdown-body code {
+    @apply bg-white/10 px-1.5 py-0.5 rounded text-emerald-400 font-mono text-[0.9em];
+  }
+  .markdown-body pre {
+    @apply bg-black/40 p-4 rounded-xl border border-white/5 mb-4 overflow-x-auto;
+  }
+  .markdown-body pre code {
+    @apply bg-transparent p-0 text-zinc-300 text-xs;
+  }
+  .markdown-body blockquote {
+    @apply border-l-4 border-emerald-500/50 pl-4 italic text-zinc-400 mb-4;
+  }
+  .markdown-body a {
+    @apply text-emerald-400 hover:underline;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.05];
+  }
+  
+  .glass-button {
+    @apply bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.05] transition-all duration-300;
+  }
+
+  .atmosphere-bg {
+    background: 
+      radial-gradient(circle at 50% -20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
+      radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.03) 0%, transparent 40%);
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
